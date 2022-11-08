@@ -1,0 +1,29 @@
+#mainText{
+    color: black;
+    font-weight: bold;
+    text-align: center;    
+    font-family: 'Cinzel', serif;
+
+}
+
+#firstLine{
+    color: gray;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+
+}
+
+#shape{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    position: relative;
+    
+}
+
+#timeText{
+    color: gray;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+
+}

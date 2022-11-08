@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <title>Reaction Speed Game</title>
+</head>
+<body>
+    <div>
+    <h1 id="mainText">Test your reaction speed</h1>
+    <h3 id="firstLine">Click on the boxex and circles as quickly as you can!</h3>
+    <p id="timeText">Your time: <span id="timeTaken"></span></p>
+
+    <div id="shape"></div>
+    
+    <script>
+        var start = new Date().getTime()
+
+        function getRandomColor(){
+            var letters='0123456789ABCDEF'.split("");
+            var color = '#'
+            for(var i=0;i<6;i++){
+                color+=letters[Math.floor(Math.random()*16)]
+                }
+            return color;
+        }
+        function makeShape(){
+            document.getElementById("shape").style.display="block"
+
+                if (Math.random()>0.5){
+                    document.getElementById("shape").style.borderRadius="50%"
+                }
+                else{
+                    document.getElementById("shape").style.borderRadius="0%"
+                }
+            
+            start = new Date().getTime()
+        }
+        
+        function appearAfterDelay(){
+            setTimeout(makeShape,Math.random()*2000)
+        }
+
+        document.getElementById("shape").onclick= function(){
+            
+            var top = Math.random()*400
+            
+            var left = Math.random()*400
+
+            var width = Math.random()*300
+
+            document.getElementById("shape").style.backgroundColor=getRandomColor();
+
+            document.getElementById("shape").style.top= top+"px"
+ 
+            document.getElementById("shape").style.left= left+"px"
+            
+            document.getElementById("shape").style.width= width+"px"
+            
+            document.getElementById("shape").style.height= width+"px"
+
+            document.getElementById("shape").style.display="none"
+
+            var end = new Date().getTime()
+
+            var timeTaken = (end-start)/1000
+            
+            document.getElementById("timeTaken").innerHTML=timeTaken+"s"
+
+            appearAfterDelay();
+        }
+    </script>
+</body>
+</html>
